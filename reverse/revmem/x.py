@@ -1,0 +1,26 @@
+hex_values = [
+    0x66, 0x0a, 0x0d, 0x06, 0x1c, 0x0f, 0x1c, 0x01,
+    0x1a, 0x2c, 0x28, 0x16, 0x12, 0x2c, 0x3e, 0x0f,
+    0x31, 0x3a, 0x04, 0x12, 0x0a, 0x26, 0x2d, 0x17,
+    0x13, 0x13, 0x17, 0x01, 0x16, 0x18, 0x6a, 0x17,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+]
+
+var = 0
+flag = ""
+
+for i in range(30):
+    # Perform XOR between the current hex value and 'var'
+    xor_result = var ^ hex_values[i]
+    
+    # Convert the XOR result to a character and add it to the flag string
+    flag += chr(xor_result)
+
+    # Update 'var' to the current XOR result for the next iteration
+    var = xor_result
+
+# Print the resulting flag
+print("Flag:", flag)
+
+# Print the length of the generated flag
+print("Flag Length:", len(flag))
