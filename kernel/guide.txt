@@ -1,0 +1,6 @@
+Unpack the kernel with unpack_initramfs.sh
+To run the explot in local ./run.sh
+To run in remote use ipython
+Use this command in ipython:
+%run upload_2_f.py k-rop/initramfs/exploit k-rop.training.offensivedefensive.it 8080 --ssl -e /home/user/exploit
+Change the folder and the site for each exploit
