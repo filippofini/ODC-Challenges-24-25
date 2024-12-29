@@ -37,11 +37,12 @@ f.close()
 # Or we do manually by putting a breakpoint in 0x0804970E and dumping memory
 # Or use libdebug
 
-
+# Doesn't work, doesn't enter breakpoint
 from libdebug import debugger
 
 # Get from stack pointer to memory and size
 def unpack(t, b):
+    print("HIT")
     global content
     address = int.from_bytes(t.memory[t.regs.esp, 4], "little")
     size = int.from_bytes(t.memory[t.regs.esp, 4], "little")
@@ -61,7 +62,8 @@ d.run()
 base = d.maps.filter("binary")[0].base
 
 # Put a breakpoint and read pointer and size
-d.bp(0x08049295, hardware=True, callback=unpack, file="absolute")
+bp = d.bp(0x08049295, hardware=True, callback=unpack, file="absolute")
+print(bp.hit_count)
 
 d.cont()
 
