@@ -1,0 +1,6 @@
+To patch a binary with a given lib
+patchelf --set-interpreter downloads/ld-2.23.so binary
+patchelf --replace-needed libc.so.6 download/libc-2.23.so binary
+
+To extract gadgets
+ropper --nocolor -f libc.so.6 (or binary) > gadgets.txt
